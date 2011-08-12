@@ -27,12 +27,12 @@ $LIBPATH << "/opt/local/lib" if use_macports
 
 $CFLAGS << " -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline"
 
-if Config::CONFIG['target_os'] == 'mingw32'
-  header = File.join(ROOT, 'cross', 'curl-7.19.4.win32', 'include')
-  unless find_header('curl/curl.h', header)
-    abort "need libcurl"
-  end
-else
+#if Config::CONFIG['target_os'] == 'mingw32'
+#  header = File.join(ROOT, 'cross', 'curl-7.19.4.win32', 'include')
+#  unless find_header('curl/curl.h', header)
+#    abort "need libcurl"
+#  end
+#else
   HEADER_DIRS = [
     File.join(INCLUDEDIR, "curl"),
     INCLUDEDIR,
@@ -48,18 +48,18 @@ else
   unless find_header('curl/curl.h', *HEADER_DIRS)
     abort "need libcurl"
   end
-end
+#end
 
-if Config::CONFIG['target_os'] == 'mingw32'
-  find_library('curl', 'curl_easy_init',
-               File.join(ROOT, 'cross', 'curl-7.19.4.win32', 'bin'))
-else
+#if Config::CONFIG['target_os'] == 'mingw32'
+#  find_library('curl', 'curl_easy_init',
+#               File.join(ROOT, 'cross', 'curl-7.19.4.win32', 'bin'))
+#else
   find_library('curl', 'curl_easy_init',
                LIBDIR,
                '/opt/local/lib',
                '/usr/local/lib',
                '/usr/lib'
     )
-end
+#end
 
 create_makefile("typhoeus/native")
