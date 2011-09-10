@@ -60,6 +60,7 @@ Gem::Specification.new do |s|
      "lib/typhoeus/response.rb",
      "lib/typhoeus/service.rb",
      "lib/typhoeus/utils.rb",
+     "lib/typhoeus/version.rb",
      "profilers/valgrind.rb",
      "spec/fixtures/placeholder.gif",
      "spec/fixtures/placeholder.txt",
