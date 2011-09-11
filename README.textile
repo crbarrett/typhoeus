@@ -30,7 +30,7 @@ gem install typhoeus --source http://gemcutter.org -- --with-curl=/usr/local/cur
 </pre>
 If you're on Windows and getting errors locating libcurl on install, install libcurl from the available distributions: http://curl.haxx.se/download.html and then rebuild:
 <pre>
-gem install typhoeus -- --with-opt-include=<libcurl_dir>\include --with-opt-lib=<libcurl_dir>\lib
+gem install typhoeus -- --with-opt-include=\<libcurl_dir\>\include --with-opt-lib=\<libcurl_dir\>\lib
 </pre>
 This may also require the copying of important dlls from the bin directory into the lib (specifically; libcurl.dll).
 
