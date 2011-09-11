@@ -28,6 +28,11 @@ There's also something built in so that if you have a super old version of curl 
 <pre>
 gem install typhoeus --source http://gemcutter.org -- --with-curl=/usr/local/curl/7.19.7/
 </pre>
+If you're on Windows and getting errors locating libcurl on install, install libcurl from the available distributions: http://curl.haxx.se/download.html and then rebuild:
+<pre>
+gem install typhoeus -- --with-opt-include=<libcurl_dir>\include --with-opt-lib=<libcurl_dir>\lib
+</pre>
+This may also require the copying of important dlls from the bin directory into the lib (specifically; libcurl.dll).
 
 -Another problem could be if you are running Mac Ports and you have libcurl installed through there. You need to uninstall it for Typhoeus to work! The version in Mac Ports is old and doesn't play nice. You should "download curl":http://curl.haxx.se/download.html and build from source. Then you'll have to install the gem again.- The current version of Mac Ports (7.21.2) works just fine.
 
